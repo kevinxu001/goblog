@@ -1,0 +1,43 @@
+{{template "header"}}
+<title>文章 - 我的 beego 博客</title>
+</head>
+<body>
+{{template "navbar" .}}
+<div class="container">
+	<h1>文章列表</h1>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>文章名称</th>
+				<th>最后更新</th>
+				<th>浏览</th>
+				<th>回复数</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{range .Topics}}
+			<tr>
+				<td>{{.Id}}</td>
+				<td>{{.Title}}</td>
+				<td>{{.Updated}}</td>
+				<td>{{.Views}}</td>
+				<td>{{.ReplyCount}}</td>
+			</tr>
+			{{end}}
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+function checkInput(){
+	var cname=document.getElementById("cname");
+	if (cname.value.length==0){
+		alert("请输入分类名称");
+		return false;
+	}
+
+	return true;
+}
+</script>
+{{template "footer"}}
