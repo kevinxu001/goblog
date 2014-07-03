@@ -14,7 +14,7 @@ const (
 	_DB_NAME    = "goblog"
 	_DB_USER    = "root"
 	_DB_PWD     = "nohacker"
-	_DB_CHARSET = "utf8" //root:root@(127.0.0.1:3389)/orm?charset=utf8
+	_DB_CHARSET = "utf8" //root:root@(127.0.0.1:3389)/orm?charset=utf8&loc=Asia%2FShanghai
 )
 
 type Category struct {
@@ -31,6 +31,7 @@ type Topic struct {
 	Id              int64
 	Uid             int64
 	Title           string
+	Category        string
 	Content         string `orm:"size(5000)"`
 	Attachment      string
 	Created         time.Time `orm:"index;auto_now_add"`
@@ -45,5 +46,5 @@ type Topic struct {
 func RegisterDB() {
 	orm.RegisterModel(new(Category), new(Topic))
 	orm.RegisterDriver(_DB_DRIVER, orm.DR_MySQL)
-	orm.RegisterDataBase("default", _DB_DRIVER, _DB_USER+":"+_DB_PWD+"@("+_DB_HOST+":"+_DB_PORT+")/"+_DB_NAME+"?charset="+_DB_CHARSET, 10)
+	orm.RegisterDataBase("default", _DB_DRIVER, _DB_USER+":"+_DB_PWD+"@("+_DB_HOST+":"+_DB_PORT+")/"+_DB_NAME+"?charset="+_DB_CHARSET+"&loc=Asia%2FShanghai", 10)
 }

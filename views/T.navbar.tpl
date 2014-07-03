@@ -18,7 +18,7 @@
 			<ul class="nav navbar-nav">
 				{{if .IsLogin}}
 				<li>
-					<a href="/login?exit=true">退出</a>
+					<a href="/login?exit=true">退出登录</a>
 				</li>
 				{{else}}
 				<li>

@@ -13,7 +13,7 @@ func init() {
 
 func main() {
 	orm.Debug = true
-	//orm.RunCommand()
+	orm.RunCommand()
 	err := orm.RunSyncdb("default", false, true)
 	if err != nil {
 		beego.Error(err)

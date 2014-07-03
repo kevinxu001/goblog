@@ -5,14 +5,15 @@
 	{{template "navbar" .}}
 
 	<div class="container">
+		{{range .Topics}}
 		<div class="page-header">
 			<h1>
-				我的第一篇博客文章
-				<small>本博客启用</small>
+				<a href="/topic/view/{{.Id}}">{{.Title}}</a>
 			</h1>
-			<h6 class="text-muted">文章发表于 2014 年某月某日 几点几分几秒，共有100次浏览，200个评论</h6>
-			<p>大家好，这是我的第一篇博客，多谢关注。</p>
+			<h6 class="text-muted">文章发表于 {{.Created}}，共有{{.Views}}次浏览，{{.ReplyCount}}个评论</h6>
+			{{.Content}}
 		</div>
+		{{end}}
 	</div>
 
 {{template "footer"}}
